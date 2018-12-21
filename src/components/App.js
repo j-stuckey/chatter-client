@@ -6,46 +6,47 @@ import { refreshAuthToken } from '../actions/auth';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 class App extends Component {
-    componentDidUpdate(prevProps) {
-        if (!prevProps.loggedIn && this.props.loggedIn) {
-            this.startPeriodicRefresh();
-        }
-        if (prevProps.loggedIn && !this.props.loggedIn) {
-            this.stopPeriodicRefresh();
-        }
-    }
 
-    componentWillMount() {
-        //cleans up the refresh interval after logging out of app
-        this.stopPeriodicRefresh();
-    }
+	componentDidUpdate(prevProps) {
+		if (!prevProps.loggedIn && this.props.loggedIn) {
+			this.startPeriodicRefresh();
+		}
+		if (prevProps.loggedIn && !this.props.loggedIn) {
+			this.stopPeriodicRefresh();
+		}
+	}
 
-    startPeriodicRefresh() {
-        this.refreshInterval = setInterval(
-            () => this.props.dispatch(refreshAuthToken()),
-            // sets refresh interval to 15 minutes
-            15 * 60 * 1000
-        );
-    }
+	componentWillMount() {
+		//cleans up the refresh interval after logging out of app
+		this.stopPeriodicRefresh();
+	}
 
-    stopPeriodicRefresh() {
-        // if this is called a refresh interval was never started
-        // just return
-        if (!this.refreshInterval) {
-            return;
-        }
+	startPeriodicRefresh() {
+		this.refreshInterval = setInterval(
+			() => this.props.dispatch(refreshAuthToken()),
+			// sets refresh interval to 15 minutes
+			15 * 60 * 1000
+		);
+	}
 
-        // clears the refresh interval
-        clearInterval(this.refreshInterval);
-    }
+	stopPeriodicRefresh() {
+		// if this is called a refresh interval was never started
+		// just return
+		if (!this.refreshInterval) {
+			return;
+		}
 
-    render() {
-        return (
-            <Fragment>
-                <Route exact path="/home" component={Header} />
-            </Fragment>
-        );
-    }
+		// clears the refresh interval
+		clearInterval(this.refreshInterval);
+	}
+
+	render() {
+		return (
+			<Fragment>
+				<Route path="/" render={props => <Header {...props} />} />
+			</Fragment>
+		);
+	}
 }
 
 export default App;

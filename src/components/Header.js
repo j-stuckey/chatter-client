@@ -1,17 +1,27 @@
 import React from 'react';
 import styles from './styles/Header.module.css';
 import { Route, Redirect, Link } from 'react-router-dom';
+import { BurgerMenu } from './BurgerMenu'
 
-export function Header(props) {
-    if (!props.loggedIn) {
-        return <Redirect to="/login" />;
-    }
+export class Header extends React.Component {
+	constructor(props) {
+		super(props);
 
-    return (
-        <nav>
-            <Link to="/stuff" className={styles.link}>
-                Stuff
-            </Link>
-        </nav>
-    );
+		this.state = {
+			clicked: false
+		};
+	}
+
+	render() {
+		return (
+			<header>
+				<nav className={styles.mainNav}>
+					<Link to="/">Home</Link>
+					<Link to="/stuff">Stuff</Link>
+
+					<BurgerMenu />
+				</nav>
+			</header>
+		);
+	}
 }
