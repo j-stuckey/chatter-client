@@ -1,5 +1,5 @@
 import React from 'react';
-// import styles from './styles/Header.module.css';
+import styles from './styles/BurgerMenu.module.css';
 
 export class BurgerMenu extends React.Component {
 	constructor(props) {
