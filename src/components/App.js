@@ -1,10 +1,9 @@
 import React, { Component, Fragment } from 'react';
 import { Header } from './Header';
-import styles from './styles/App.module.css';
+
 import { refreshAuthToken } from '../actions/auth';
 
-import { BrowserRouter as Router, Route } from 'react-router-dom';
-import { Dashboard } from './Header';
+import { Route } from 'react-router-dom';
 
 class App extends Component {
 	componentDidUpdate(prevProps) {
