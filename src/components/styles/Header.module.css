@@ -11,3 +11,15 @@
 	background: rgb(8, 8, 134);
 	padding: 20px;
 }
+
+.mainNav a {
+    color: white;
+    text-decoration: none;
+    padding: 0 10px;
+}
+
+.mainNav a:hover {
+    text-decoration: underline;
+    font-style: italic;
+    color: red;
+}

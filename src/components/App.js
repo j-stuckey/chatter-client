@@ -4,9 +4,9 @@ import styles from './styles/App.module.css';
 import { refreshAuthToken } from '../actions/auth';
 
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { Dashboard } from './Header';
 
 class App extends Component {
-
 	componentDidUpdate(prevProps) {
 		if (!prevProps.loggedIn && this.props.loggedIn) {
 			this.startPeriodicRefresh();

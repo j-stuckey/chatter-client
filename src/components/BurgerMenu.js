@@ -14,12 +14,14 @@ export class BurgerMenu extends React.Component {
 	}
 	render() {
 		return (
-			// when the button is clicked,
-			// the class is toggled to change styling of button
-			<button className={this.state.clicked ? styles.burger : styles.changed} onClick={() => this.handleClick()}>
+			<button
+				className={this.state.clicked ? styles.burger : styles.changed}
+				onClick={() => this.handleClick()}
+			>
 				<div className={styles.line1} />
 				<div className={styles.line2} />
 				<div className={styles.line3} />
-			</button>);
+			</button>
+		);
 	}
 }
