@@ -19,7 +19,7 @@ export class Header extends React.Component {
 					<Link to="/">Home</Link>
 					<Link to="/stuff">Stuff</Link>
 
-					<BurgerMenu />
+					{/* <BurgerMenu /> */}
 
 				</nav>
 			</header>
