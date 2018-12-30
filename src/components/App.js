@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import { Header } from './Header';
+import { Dashboard } from './Dashboard';
 
 import { refreshAuthToken } from '../actions/auth';
 
@@ -43,6 +44,7 @@ class App extends Component {
 		return (
 			<Fragment>
 				<Route path="/" render={props => <Header {...props} />} />
+				<Route path="/dashboard" render={props => <Dashboard loggedIn={true}/>} />
 			</Fragment>
 		);
 	}

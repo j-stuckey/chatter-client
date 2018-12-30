@@ -1,7 +1,6 @@
 import React from 'react';
 import styles from './styles/Header.module.css';
-import { Link } from 'react-router-dom';
-import { BurgerMenu } from './BurgerMenu';
+import { Link, NavLink } from 'react-router-dom';
 
 export class Header extends React.Component {
 	constructor(props) {
@@ -10,17 +9,21 @@ export class Header extends React.Component {
 		this.state = {
 			clicked: false
 		};
+
+		this.activeStyle = {
+			fontWeight: "bold",
+			fontStyle: "italic",
+			color: "red"
+		}
 	}
 
 	render() {
 		return (
 			<header>
 				<nav className={styles.mainNav}>
-					<Link to="/">Home</Link>
-					<Link to="/stuff">Stuff</Link>
-
-					{/* <BurgerMenu /> */}
-
+					<NavLink exact to="/" activeStyle={this.activeStyle}>Home</NavLink>
+					<NavLink to="/login" activeStyle={this.activeStyle}>Login</NavLink>
+					<NavLink to="/dashboard" activeStyle={this.activeStyle}>Dashboard</NavLink>
 				</nav>
 			</header>
 		);
