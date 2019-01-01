@@ -1,8 +1,14 @@
-.App {
-    display: flex;
-    justify-content: center;
+.background::before {
+    content: "";
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    background:#D8D8D8;
+	background: linear-gradient(130deg, rgb(36, 34, 128), #1e5863)
 }
 
-.header {
-    color: red;
-}
+

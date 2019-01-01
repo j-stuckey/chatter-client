@@ -7,6 +7,8 @@ import { refreshAuthToken } from '../actions/auth';
 
 import { Route } from 'react-router-dom';
 
+import styles from './styles/App.module.css';
+
 class App extends Component {
 	componentDidUpdate(prevProps) {
 		if (!prevProps.loggedIn && this.props.loggedIn) {
@@ -43,11 +45,12 @@ class App extends Component {
 
 	render() {
 		return (
-			<Fragment>
+			<div className={styles.background}>
 				<Route exact path="/" render={props => <Header {...props} />} />
 				<Route path="/login" component={Login} />
 				<Route path="/dashboard" render={props => <Dashboard />} />
-			</Fragment>
+			</div>
+			
 		);
 	}
 }

@@ -2,7 +2,7 @@
     display: flex;
     justify-content: center;
     position: relative;
-    top: 20vw;
+    top: 10vw;
     margin: 0 auto;
     width: 60vw;
     border-radius: 5px;
@@ -10,9 +10,20 @@
     text-align: center;
 }
 
-.header {
+.legend {
     color: white;
     font-family: 'Source Sans Pro', sans-serif;
+    margin: 0 auto;
+    font-size: 2em;
+    font-weight: 700;
+}
+
+.fieldset {
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
     margin: 0 auto;
 }
 
@@ -38,20 +49,6 @@
     margin-bottom: 10px;
 }
 
-.container::before {
-    content: "";
-    position: fixed;
-    left: 0;
-    top: 0;
-    right: 0;
-    left: 0;
-    bottom: 0;
-    z-index: -1;
-    /* background: #5faaaa; */
-    background:#D8D8D8;
-	background: linear-gradient(130deg, rgb(36, 34, 128), #1e5863)
-}
-
 .loginButton {
     color: white;
     background: red;
@@ -74,5 +71,38 @@
 
 .registerLink:hover {
     text-decoration: underline;
+}
+
+@media only screen and (min-width: 400px) {
+
+    .loginButton {
+        width: 20vw;
+        margin-bottom: 20px;
+    }
+
+    .legend {
+        /* color: black; */
+        position: relative;
+        top: -60px;
+    }
+
+    .form {
+        background: white;
+        border-radius: 5px;
+        width: 50vw;
+        margin: 0 auto;
+    }
+
+    .formLabel {
+        color: black;
+    }
+
+    .formInput {
+        width: 30vw;
+    }
+
+    .registerLink {
+        margin: 20px;
+    }
 }
 
