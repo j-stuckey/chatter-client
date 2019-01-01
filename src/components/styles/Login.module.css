@@ -2,9 +2,8 @@
     display: flex;
     justify-content: center;
     position: relative;
-    top: 30vw;
+    top: 20vw;
     margin: 0 auto;
-    /* background-color: white; */
     width: 60vw;
     border-radius: 5px;
     flex-flow: column;
@@ -67,5 +66,13 @@
     font-size: 0.9em;
 }
 
+.registerLink {
+    color: rgb(230, 230, 230);
+    font-size: 0.9rem;
+    text-decoration: none;
+}
 
+.registerLink:hover {
+    text-decoration: underline;
+}
 

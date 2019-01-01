@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import styles from './styles/Login.module.css';
 
@@ -52,6 +53,8 @@ export class Login extends React.Component {
 
 					<button type="submit" className={styles.loginButton}>Login</button>
 				</form>
+
+				<Link to="/register" className={styles.registerLink}>Don't have an account? Register here.</Link>
 			</div>
 		);
 	}
