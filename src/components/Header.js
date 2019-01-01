@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './styles/Header.module.css';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 export class Header extends React.Component {
 	constructor(props) {
@@ -21,9 +21,8 @@ export class Header extends React.Component {
 		return (
 			<header>
 				<nav className={styles.mainNav}>
-					<NavLink exact to="/" activeStyle={this.activeStyle}>Home</NavLink>
-					<NavLink to="/login" activeStyle={this.activeStyle}>Login</NavLink>
-					<NavLink to="/dashboard" activeStyle={this.activeStyle}>Dashboard</NavLink>
+					<NavLink to="/login">Login</NavLink>
+					<NavLink to="/register" className={styles.registerButton}>Sign up</NavLink>
 				</nav>
 			</header>
 		);

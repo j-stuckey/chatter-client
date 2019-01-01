@@ -44,7 +44,7 @@ class App extends Component {
 		return (
 			<Fragment>
 				<Route path="/" render={props => <Header {...props} />} />
-				<Route path="/dashboard" render={props => <Dashboard loggedIn={true}/>} />
+				<Route path="/dashboard" render={props => <Dashboard />} />
 			</Fragment>
 		);
 	}
