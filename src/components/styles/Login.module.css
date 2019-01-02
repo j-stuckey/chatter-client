@@ -54,6 +54,7 @@
     background: red;
     border-radius: 5px;
     border: none;
+	box-shadow: 0 3px rgb(189, 189, 189);
     text-transform: uppercase;
     height: 35px;
     width: 60%;
@@ -61,6 +62,11 @@
     margin-bottom: 0;
     font-weight: 700;
     font-size: 0.9em;
+}
+
+.loginButton:active {
+    box-shadow: none;
+    transform: translateY(4px);
 }
 
 .registerLink {
