@@ -9,12 +9,6 @@ export class Header extends React.Component {
 		this.state = {
 			clicked: false
 		};
-
-		this.activeStyle = {
-			fontWeight: "bold",
-			fontStyle: "italic",
-			color: "red"
-		}
 	}
 
 	render() {
