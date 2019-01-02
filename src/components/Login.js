@@ -9,9 +9,7 @@ export class Login extends React.Component {
 
 		this.state = {
 			username: '',
-			password: '',
-			usernameError: null,
-			passwordError: null
+			password: ''
 		};
 	}
 
@@ -23,30 +21,27 @@ export class Login extends React.Component {
 		this.setState({ password: event.target.value });
 	}
 
+	resetForm() {
+		this.setState({ username: '', password: '' })
+	}
+
 	handleSubmit = event => {
 		event.preventDefault();
-		this.setState({ usernameError: null, passwordError: null });
-		if (!this.state.username) {
-			this.setState({ usernameError: 'Username cannot be blank'});
-		} 
-		if (!this.state.password) {
-			this.setState({ passwordError: 'Password cannot be blank'});
-		}
 		// do the rest of the logic here
-		console.log(this.state);
+		this.resetForm();
+		// this.props.history.push('/dashboard');
 	};
 
 	render() {
 
 		return (
 			<div className={styles.container}>
-				<form className={styles.form} onSubmit={this.handleSubmit}>
+				<form className={styles.form} onSubmit={this.handleSubmit} id="login">
 					<fieldset className={styles.fieldset}>
 
-						<legend className={styles.legend}>Login</legend>
+						<legend className={styles.legend}>{this.props.legend}</legend>
 
 						<label htmlFor="username" className={styles.formLabel}>Username</label>
-						<p className={styles.error}>{this.state.usernameError}</p>
 						<input
 							className={styles.formInput}
 							type="text"
@@ -57,7 +52,6 @@ export class Login extends React.Component {
 						/>
 
 						<label htmlFor="password" className={styles.formLabel}>Password</label>
-						<p className={styles.error}>{this.state.passwordError}</p>
 						<input
 							className={styles.formInput}
 							type="password"
