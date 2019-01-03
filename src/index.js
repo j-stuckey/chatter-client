@@ -11,7 +11,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 ReactDOM.render(
 	<Provider store={store}>
 		<Router>
-			<App loggedIn={true}/>
+			<App />
 		</Router>
 	</Provider>,
 	document.getElementById('root')
