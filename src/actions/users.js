@@ -4,7 +4,7 @@ import { normalizeResponseErrors } from './utils';
 import { login } from './auth';
 
 export const registerUser = user => dispatch => {
-    // dispatch(registerUser());
+    
     return fetch(`${API_BASE_URL}/users`, {
         method: 'POST',
         headers: {

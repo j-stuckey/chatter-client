@@ -6,19 +6,20 @@ import {
 	required,
 	atLeastThree,
 	atLeastEight,
-	isValidEmail,
-	emailTooLong,
-	passwordsMatch
+    passwordsMatch
 } from '../validators';
 import Input from './input';
 
 import formStyles from './styles/forms.module.css';
 import styles from './styles/Registration.module.css';
+import { registerUser } from '../actions/users';
 
 class Registration extends Component {
 
     handleFormSubmit = (values) => {
-        console.log(values);
+        const user = values;
+        console.log(user);
+        // this.props.dispatch(registerUser(user))
     }
 
 	render() {
@@ -36,7 +37,7 @@ class Registration extends Component {
 						<Field
 							name="firstName"
                             type="text"
-                            label="First Name"
+                            // label="First Name"
 							component={Input}
 							placeholder="First Name"
 							validate={[required]}
@@ -44,39 +45,38 @@ class Registration extends Component {
 						<Field
 							name="lastName"
                             type="text"
-                            label="Last Name"                            
+                            // label="Last Name"                            
 							component={Input}
 							placeholder="Last Name"
 							validate={[required]}
 						/>
 						<Field
-							name="email"
+							name="Username"
                             type="text"
-                            label="Email"                            
+                            // label="Email"                            
 							component={Input}
-							placeholder="Email"
+							placeholder="Username"
 							// // Add an element prop to change the type of input
 							// element="select"
-							validate={[required, isValidEmail]}
+							validate={[required, atLeastThree]}
 						/>
 						<Field
 							name="password"
                             type="password"
-                            label="Password"                            
+                            // label="Password"                            
 							component={Input}
 							placeholder="Password"
-							validate={[required, atLeastEight, emailTooLong]}
+							validate={[required, atLeastEight]}
 						/>
 						<Field
 							name="confirmPassword"
                             type="password"
-                            label="Confirm Password"
+                            // label="Confirm Password"
 							component={Input}
 							placeholder="Confirm Password"
 							validate={[
 								required,
 								atLeastEight,
-								emailTooLong,
 								passwordsMatch
 							]}
 						/>
