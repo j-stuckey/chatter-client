@@ -39,7 +39,7 @@ export class Login extends React.Component {
 				<form className={styles.form} onSubmit={this.handleSubmit} id="login">
 					<fieldset className={styles.fieldset}>
 
-						<legend className={styles.legend}>{this.props.legend}</legend>
+						<legend className={styles.legend}>Login</legend>
 
 						<label htmlFor="username" className={styles.formLabel}>Username</label>
 						<input
