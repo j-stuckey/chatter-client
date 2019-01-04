@@ -1,10 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { login } from '../actions/auth'
+import { login } from '../actions/auth';
 import { Redirect } from 'react-router-dom';
 
+import PropTypes from 'prop-types';
 import styles from './styles/forms.module.css';
+
 
 export class Login extends React.Component {
 	constructor(props) {
@@ -22,10 +24,10 @@ export class Login extends React.Component {
 
 	handlePassword = event => {
 		this.setState({ password: event.target.value });
-	}
+	};
 
 	resetForm() {
-		this.setState({ username: '', password: '' })
+		this.setState({ username: '', password: '' });
 	}
 
 	handleSubmit = event => {
@@ -33,30 +35,27 @@ export class Login extends React.Component {
 		// do the rest of the logic here
 		this.resetForm();
 		this.props
-            .dispatch(login(this.state.username, this.state.password))
-            .then(() => this.props.history.push('/dashboard'));
+			.dispatch(login(this.state.username, this.state.password))
+			.then(() => this.props.history.push('/dashboard'));
 	};
-
-	isLoggedIn() {
-		if (this.props.isLoggedIn) {
-			return <Redirect to="/dashboard" />
-		}
-	}
 
 	render() {
 
-		const redirectToDashboard = this.isLoggedIn();
-		console.log(redirectToDashboard);
 		return (
 			<div className={styles.container}>
-				{redirectToDashboard}
+				{this.props.isLoggedIn ? <Redirect to="/dashboard" /> : null}
 
-				<form className={styles.form} onSubmit={this.handleSubmit} id="login">
+				<form
+					className={styles.form}
+					onSubmit={this.handleSubmit}
+					id="login"
+				>
 					<fieldset className={styles.fieldset}>
-
 						<legend className={styles.legend}>Login</legend>
 
-						<label htmlFor="username" className={styles.formLabel}>Username</label>
+						<label htmlFor="username" className={styles.formLabel}>
+							Username
+						</label>
 						<input
 							className={styles.formInput}
 							type="text"
@@ -66,7 +65,9 @@ export class Login extends React.Component {
 							onChange={this.handleUsername}
 						/>
 
-						<label htmlFor="password" className={styles.formLabel}>Password</label>
+						<label htmlFor="password" className={styles.formLabel}>
+							Password
+						</label>
 						<input
 							className={styles.formInput}
 							type="password"
@@ -76,11 +77,15 @@ export class Login extends React.Component {
 							onChange={this.handlePassword}
 						/>
 
-						<button type="submit" className={styles.loginButton}>Login</button>
+						<button type="submit" className={styles.loginButton}>
+							Login
+						</button>
 					</fieldset>
 				</form>
 
-				<Link to="/register" className={styles.registerLink}>Don't have an account? Register here.</Link>
+				<Link to="/register" className={styles.registerLink}>
+					Don't have an account? Register here.
+				</Link>
 			</div>
 		);
 	}
@@ -89,7 +94,13 @@ export class Login extends React.Component {
 const mapStateToProps = state => {
 	return {
 		isLoggedIn: state.auth.currentUser !== null
-	}
+	};
 };
 
+Login.propTypes = {
+	isLoggedIn: PropTypes.bool
+}
+
 export default connect(mapStateToProps)(Login);
+
+
