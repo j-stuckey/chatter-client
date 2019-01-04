@@ -6,20 +6,21 @@ import {
 	required,
 	atLeastThree,
 	atLeastEight,
-    passwordsMatch
+    passwordsMatch,
+	isValidEmail
 } from '../validators';
 import Input from './input';
+import { registerUser } from '../actions/users';
 
 import formStyles from './styles/forms.module.css';
 import styles from './styles/Registration.module.css';
-import { registerUser } from '../actions/users';
 
 class Registration extends Component {
 
     handleFormSubmit = (values) => {
         const user = values;
-        console.log(user);
-        // this.props.dispatch(registerUser(user))
+        
+        this.props.dispatch(registerUser(user))
     }
 
 	render() {
@@ -51,7 +52,15 @@ class Registration extends Component {
 							validate={[required]}
 						/>
 						<Field
-							name="Username"
+							name="email"
+                            type="text"
+                            // label="Last Name"                            
+							component={Input}
+							placeholder="Email (optional)"
+							validate={[isValidEmail]}
+						/>
+						<Field
+							name="username"
                             type="text"
                             // label="Email"                            
 							component={Input}

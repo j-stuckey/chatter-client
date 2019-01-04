@@ -11,6 +11,9 @@ export const atLeastEight = value => {
 };
 
 export const isValidEmail = email => {
+    if (email === undefined) {
+        return;
+    }
     const regex = /\S+@\S+\.\S+/;
     return regex.test(email) ? undefined : 'Not a valid email';
 };
