@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Header } from './Header';
-import { Dashboard } from './Dashboard';
-import { Login } from './Login';
+import Dashboard from './Dashboard';
+import Login from './Login';
 import Registration from './Registration';
 
 import { refreshAuthToken } from '../actions/auth';
@@ -50,7 +50,7 @@ class App extends Component {
 				<Route exact path="/" render={props => <Header {...props} />} />
 				<Route path="/login" component={Login} />
 				<Route path="/register" render={props => <Registration />} />
-				<Route path="/dashboard" render={props => <Dashboard />} />
+				<Route path="/dashboard" render={props => <Dashboard {...props} />} />
 			</div>
 		);
 	}

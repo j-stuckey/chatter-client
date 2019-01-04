@@ -1,5 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { login } from '../actions/auth'
+import { Redirect } from 'react-router-dom';
 
 import styles from './styles/forms.module.css';
 
@@ -29,13 +32,25 @@ export class Login extends React.Component {
 		event.preventDefault();
 		// do the rest of the logic here
 		this.resetForm();
-		// this.props.history.push('/dashboard');
+		this.props
+            .dispatch(login(this.state.username, this.state.password))
+            .then(() => this.props.history.push('/dashboard'));
 	};
+
+	isLoggedIn() {
+		if (this.props.isLoggedIn) {
+			return <Redirect to="/dashboard" />
+		}
+	}
 
 	render() {
 
+		const redirectToDashboard = this.isLoggedIn();
+		console.log(redirectToDashboard);
 		return (
 			<div className={styles.container}>
+				{redirectToDashboard}
+
 				<form className={styles.form} onSubmit={this.handleSubmit} id="login">
 					<fieldset className={styles.fieldset}>
 
@@ -70,3 +85,11 @@ export class Login extends React.Component {
 		);
 	}
 }
+
+const mapStateToProps = state => {
+	return {
+		isLoggedIn: state.auth.currentUser !== null
+	}
+};
+
+export default connect(mapStateToProps)(Login);

@@ -21,7 +21,7 @@ export const registerUser = user => dispatch => {
         })
         .then(res => normalizeResponseErrors(res))
         .then(res => res.json())
-        // .then(() => dispatch(login(user.username, user.password)))
+        .then(() => dispatch(login(user.username, user.password)))
         .catch(err => {
             const { reason, message, location } = err;
             if (reason === 'ValidationError') {
