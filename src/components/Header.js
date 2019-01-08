@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './styles/Header.module.css';
 import { NavLink } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 export class Header extends React.Component {
 	constructor(props) {
@@ -22,3 +23,12 @@ export class Header extends React.Component {
 		);
 	}
 }
+
+const mapStateToProps = state => {
+	return {
+		isLoggedIn: state.auth.currentUser !== null,
+		currentUser: state.auth.currentUser
+	};
+};
+
+export default connect(mapStateToProps)(Header);

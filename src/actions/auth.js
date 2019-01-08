@@ -37,7 +37,7 @@ export const authError = err => ({
 const storeAuthTokenInfo = (authToken, dispatch) => {
     const decodedToken = jwtDecode(authToken);
     dispatch(setAuthToken(authToken));
-    dispatch(authSuccess(decodedToken.user));
+    dispatch(authSuccess(decodedToken.user));    
     saveAuthToken(authToken);
 };
 // passing in history from this.props.history

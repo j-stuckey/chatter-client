@@ -1,13 +1,20 @@
+.container {
+	height: 50px;
+	background: #005D70;	
+}
+
 .burger {
 	position: absolute;
-	right: 10px;
+	top: 5px;
+	right: 5px;
 	background: inherit;
 	border: none;
 }
 
 .changed {
 	position: absolute;
-	right: 10px;
+	top: 5px;
+	right: 5px;
 	border: none;
 	background-color: inherit;
 }
@@ -16,7 +23,7 @@
 .line2,
 .line3 {
 	width: 36px;
-	height: 5px;
+	height: 4px;
 	background-color: white;
     margin: 6px 0;
     transition: 0.25s;

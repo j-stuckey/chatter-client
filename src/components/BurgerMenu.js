@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 import styles from './styles/BurgerMenu.module.css';
 
@@ -16,13 +15,18 @@ export class BurgerMenu extends React.Component {
 	}
 	render() {
 		return (
+			<div className={styles.container}>
 				<button
-					className={ this.state.clicked ? styles.changed : styles.burger }
-					onClick={() => this.handleClick()}>
+					className={
+						this.state.clicked ? styles.changed : styles.burger
+					}
+					onClick={() => this.handleClick()}
+				>
 					<div className={styles.line1} />
 					<div className={styles.line2} />
 					<div className={styles.line3} />
-				</button>		
+				</button>
+			</div>
 		);
 	}
 }
