@@ -7,7 +7,6 @@ import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import styles from './styles/forms.module.css';
 
-
 export class Login extends React.Component {
 	constructor(props) {
 		super(props);
@@ -40,7 +39,6 @@ export class Login extends React.Component {
 	};
 
 	render() {
-
 		return (
 			<div className={styles.container}>
 				{this.props.isLoggedIn ? <Redirect to="/dashboard" /> : null}
@@ -52,11 +50,13 @@ export class Login extends React.Component {
 				>
 					<fieldset className={styles.fieldset}>
 						<legend className={styles.legend}>Login</legend>
-						<p className={styles.error}>{this.props.error}</p>
+						<p className={styles.error} aria-live="polite">
+							{this.props.error}
+						</p>
 						<label htmlFor="username" className={styles.formLabel}>
 							Username
 						</label>
-						
+
 						<input
 							className={styles.formInput}
 							type="text"
@@ -101,8 +101,6 @@ const mapStateToProps = state => {
 
 Login.propTypes = {
 	isLoggedIn: PropTypes.bool
-}
+};
 
 export default connect(mapStateToProps)(Login);
-
-
