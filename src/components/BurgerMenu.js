@@ -6,19 +6,19 @@ export class BurgerMenu extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			clicked: false
+			show: false
 		};
 	}
 	handleClick() {
 		//sets state to show the hamburger menu as clicked
-		this.setState({ clicked: !this.state.clicked });
+		this.setState({ show: !this.state.show });
 	}
 	render() {
 		return (
 			<div className={styles.container}>
 				<button
 					className={
-						this.state.clicked ? styles.changed : styles.burger
+						this.state.show ? styles.changed : styles.burger
 					}
 					onClick={() => this.handleClick()}
 				>
@@ -26,6 +26,12 @@ export class BurgerMenu extends React.Component {
 					<div className={styles.line2} />
 					<div className={styles.line3} />
 				</button>
+
+				<div className={this.state.show ? styles.modal : null }>
+					<div className={this.state.show ? styles.modalContent : null }>
+
+					</div>
+				</div>
 			</div>
 		);
 	}

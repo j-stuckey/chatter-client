@@ -1,6 +1,6 @@
 .container {
 	height: 50px;
-	background: #005D70;	
+	background: #005d70;
 }
 
 .burger {
@@ -25,12 +25,12 @@
 	width: 36px;
 	height: 4px;
 	background-color: white;
-    margin: 6px 0;
-    transition: 0.25s;
+	margin: 6px 0;
+	transition: 0.25s;
 }
 
 .changed * {
-    background: red;
+	background: black;
 }
 
 .changed .line1 {
@@ -45,4 +45,28 @@
 .changed .line3 {
 	-webkit-transform: rotate(45deg) translate(-8px, -8px);
 	transform: rotate(45deg) translate(-8px, -8px);
+}
+
+.modal {
+	/* Hidden by default */
+	position: fixed; /* Stay in place */
+	z-index: 1; /* Sit on top */
+	left: 0;
+	top: 50px;
+	width: 100%; /* Full width */
+	height: 100%; /* Full height */
+	overflow: auto; /* Enable scroll if needed */
+	background-color: rgb(0, 0, 0); /* Fallback color */
+	background-color: rgb(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+.modalContent {
+	transition: ease-in-out 0.5s;
+	padding: 20px;
+	width: 150px;
+	height: 100%;
+	position: fixed;
+	/* top: 50px; */
+	right: 0;
+	background: rgb(167, 167, 167);
 }

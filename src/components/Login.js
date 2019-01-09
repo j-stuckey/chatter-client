@@ -52,10 +52,11 @@ export class Login extends React.Component {
 				>
 					<fieldset className={styles.fieldset}>
 						<legend className={styles.legend}>Login</legend>
-
+						<p className={styles.error}>{this.props.error}</p>
 						<label htmlFor="username" className={styles.formLabel}>
 							Username
 						</label>
+						
 						<input
 							className={styles.formInput}
 							type="text"
@@ -93,6 +94,7 @@ export class Login extends React.Component {
 
 const mapStateToProps = state => {
 	return {
+		error: state.auth.error,
 		isLoggedIn: state.auth.currentUser !== null
 	};
 };
