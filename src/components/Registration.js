@@ -7,13 +7,16 @@ import {
 	atLeastThree,
 	atLeastEight,
 	passwordsMatch,
-	isValidEmail
+	isValidEmail,
+	length
 } from '../validators';
 import Input from './input';
 import { registerUser } from '../actions/users';
-
 import formStyles from './styles/forms.module.css';
 import styles from './styles/Registration.module.css';
+
+const passwordLength = length({ min: 8, max: 72 });
+const usernameLength = length({ min: 3, max: 32 });
 
 class Registration extends Component {
 	handleFormSubmit = values => {
@@ -68,7 +71,7 @@ class Registration extends Component {
 							placeholder="Username"
 							// // Add an element prop to change the type of input
 							// element="select"
-							validate={[required, atLeastThree]}
+							validate={[required, usernameLength]}
 						/>
 						<Field
 							name="password"
@@ -76,7 +79,7 @@ class Registration extends Component {
 							// label="Password"
 							component={Input}
 							placeholder="Password"
-							validate={[required, atLeastEight]}
+							validate={[required, passwordLength]}
 						/>
 						<Field
 							name="confirmPassword"
@@ -84,7 +87,7 @@ class Registration extends Component {
 							// label="Confirm Password"
 							component={Input}
 							placeholder="Confirm Password"
-							validate={[required, atLeastEight, passwordsMatch]}
+							validate={[required, passwordsMatch, passwordLength]}
 						/>
 						<button type="submit" className={styles.button}>
 							Sign up

@@ -4,7 +4,7 @@ import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import BurgerMenu from './BurgerMenu';
 
-// import styles from './styles/dashboard.module.css';
+import styles from './styles/Dashboard.module.css';
 
 export class Dashboard extends Component {
 	render() {
@@ -12,10 +12,14 @@ export class Dashboard extends Component {
 			return <Redirect to="/login" />;
 		}
 		return (
-			<div>
+			<div className={styles.background}>
 				{/* <div className={styles.loader} /> */}
 				<BurgerMenu />
-				<h1>Welcome {this.props.currentUser.firstName}</h1>
+				<div className={styles.container}>
+					<p className={styles.header}>
+						Welcome {this.props.currentUser.firstName}
+					</p>
+				</div>
 			</div>
 		);
 	}

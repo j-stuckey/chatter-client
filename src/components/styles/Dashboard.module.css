@@ -1,0 +1,25 @@
+.background::before {
+	content: '';
+	position: fixed;
+	left: 0;
+	top: 0;
+	right: 0;
+	left: 0;
+	bottom: 0;
+    z-index: -1;
+    margin: 10px;
+    margin-top: 60px;
+    border-radius: 5px;
+	background: white;
+	background: linear-gradient(130deg, rgb(36, 34, 128));
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+.header {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 1.5em;
+}
