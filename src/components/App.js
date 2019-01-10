@@ -49,7 +49,7 @@ class App extends Component {
 			<div className={styles.background}>
 				<Route exact path="/" render={props => <Header {...props} />} />
 				<Route path="/login" component={Login} />
-				<Route path="/register" render={props => <Registration />} />
+				<Route path="/register" render={props => <Registration {...props} />} />
 				<Route path="/dashboard" render={props => <Dashboard {...props} />} />
 			</div>
 		);

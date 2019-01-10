@@ -6,7 +6,7 @@ import {
 	required,
 	atLeastThree,
 	atLeastEight,
-    passwordsMatch,
+	passwordsMatch,
 	isValidEmail
 } from '../validators';
 import Input from './input';
@@ -16,53 +16,54 @@ import formStyles from './styles/forms.module.css';
 import styles from './styles/Registration.module.css';
 
 class Registration extends Component {
+	handleFormSubmit = values => {
+		const user = values;
 
-    handleFormSubmit = (values) => {
-        const user = values;
-        
-        this.props.dispatch(registerUser(user))
-    }
+		this.props
+			.dispatch(registerUser(user))
+			.then(() => this.props.history.push('/dashboard'));
+	};
 
 	render() {
 		return (
 			<main className={formStyles.container}>
 				<form
-                    className={formStyles.form}
+					className={formStyles.form}
 					onSubmit={this.props.handleSubmit(values =>
 						this.handleFormSubmit(values)
 					)}
 				>
 					<fieldset className={formStyles.fieldset}>
-                        <legend className={formStyles.legend}>Register</legend>
-                        {/* <label htmlFor="firstName" className={styles.formLabel}>First Name</label> */}
+						<legend className={formStyles.legend}>Register</legend>
+						{/* <label htmlFor="firstName" className={styles.formLabel}>First Name</label> */}
 						<Field
 							name="firstName"
-                            type="text"
-                            // label="First Name"
+							type="text"
+							// label="First Name"
 							component={Input}
 							placeholder="First Name"
 							validate={[required]}
 						/>
 						<Field
 							name="lastName"
-                            type="text"
-                            // label="Last Name"                            
+							type="text"
+							// label="Last Name"
 							component={Input}
 							placeholder="Last Name"
 							validate={[required]}
 						/>
 						<Field
 							name="email"
-                            type="text"
-                            // label="Last Name"                            
+							type="text"
+							// label="Last Name"
 							component={Input}
 							placeholder="Email (optional)"
 							validate={[isValidEmail]}
 						/>
 						<Field
 							name="username"
-                            type="text"
-                            // label="Email"                            
+							type="text"
+							// label="Email"
 							component={Input}
 							placeholder="Username"
 							// // Add an element prop to change the type of input
@@ -71,40 +72,35 @@ class Registration extends Component {
 						/>
 						<Field
 							name="password"
-                            type="password"
-                            // label="Password"                            
+							type="password"
+							// label="Password"
 							component={Input}
 							placeholder="Password"
 							validate={[required, atLeastEight]}
 						/>
 						<Field
 							name="confirmPassword"
-                            type="password"
-                            // label="Confirm Password"
+							type="password"
+							// label="Confirm Password"
 							component={Input}
 							placeholder="Confirm Password"
-							validate={[
-								required,
-								atLeastEight,
-								passwordsMatch
-							]}
+							validate={[required, atLeastEight, passwordsMatch]}
 						/>
-						<button type="submit" className={styles.button}>Sign up</button>
+						<button type="submit" className={styles.button}>
+							Sign up
+						</button>
 					</fieldset>
 				</form>
 
-				<Link to="/login" className={formStyles.registerLink}>Already have an account? Login here.</Link>
-
+				<Link to="/login" className={formStyles.registerLink}>
+					Already have an account? Login here.
+				</Link>
 			</main>
 		);
 	}
 }
 
-const mapStateToProps = state => ({
-	// loading: state.auth.loading
-});
-
-Registration = connect(mapStateToProps)(Registration);
+Registration = connect()(Registration);
 
 export default reduxForm({
 	form: 'registration'
