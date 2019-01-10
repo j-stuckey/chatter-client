@@ -1,8 +1,5 @@
 build:
   docker:
     web: Dockerfile
-setup:
-  config:
-    BLAH: https://www.google.com
 run:
-  web: npm start
+  web: npm run build
