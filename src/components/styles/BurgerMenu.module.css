@@ -73,25 +73,13 @@
 	background: rgb(233, 233, 233);
 }
 
-.logoutButton {
-	background: red;
-	border-radius: 5px;
-	padding: 6px 20px;
-	margin-left: 20px;
-	box-shadow: 0 3px rgb(189, 189, 189);
-	/* transition: all 0.2s ease-in; */
-	text-transform: uppercase;
-	color: white;
-	font-weight: bold;
-	border: none;
+.modalContentHide {
+	display: none;
 }
 
-.logoutButton:hover {
-	background: rgb(170, 9, 9);
-	transform: scale(1.1);
-}
-
-.logoutButton:active {
-	box-shadow: none;
-	transform: translateY(4px) scale(1.1);
+@media only screen and (min-width: 600px) {
+	/* makes BurgerMenu disappear wider than 600px */
+	.burger {
+		display: none;
+	}
 }

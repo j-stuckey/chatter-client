@@ -7,32 +7,20 @@
 	padding: 20px;
 }
 
+.mainNavLeft {
+	list-style: none;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	background: #005D70;
+	padding: 20px;
+}
+
 .mainNav a {
 	color: white;
 	font-weight: bold;
 	text-decoration: none;
 	/* margin: 0 15px; */
-}
-
-.registerButton {
-	background: red;
-	border-radius: 5px;
-	padding: 6px 20px;
-	margin-left: 20px;
-	box-shadow: 0 3px rgb(189, 189, 189);
-	/* transition: all 0.2s ease-in; */
-}
-
-.registerButton:hover {
-	background: rgb(170, 9, 9);
-
-	transform: scale(1.1);
-}
-
-.registerButton:active {
-	box-shadow: none;
-	/* transform: scale(1.1); */
-	transform: translateY(4px) scale(1.1);
 }
 
 .mainNav a:hover {

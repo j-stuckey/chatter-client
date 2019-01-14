@@ -1,7 +1,11 @@
 import React from 'react';
 import styles from './styles/Header.module.css';
-import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { clearAuth } from '../actions/auth';
+import { clearAuthToken } from '../local-storage';
+
+import { GuestLinks } from './GuestLinks';
+import { LogoutButton } from './LogoutButton';
 
 export class Header extends React.Component {
 	constructor(props) {
@@ -12,12 +16,18 @@ export class Header extends React.Component {
 		};
 	}
 
+	logOut = event => {
+		this.props.dispatch(clearAuth());
+		clearAuthToken();
+	};
+
+
 	render() {
+
 		return (
 			<header>
-				<nav className={styles.mainNav}>
-					<NavLink to="/login">Login</NavLink>
-					<NavLink to="/register" className={styles.registerButton}>Sign up</NavLink>
+				<nav className={this.props.isLoggedIn ? styles.mainNavLeft : styles.mainNav}>
+					{this.props.isLoggedIn ? <LogoutButton onClick={this.logOut}/> : <GuestLinks /> }
 				</nav>
 			</header>
 		);

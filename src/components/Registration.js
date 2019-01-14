@@ -4,8 +4,6 @@ import { reduxForm, Field } from 'redux-form';
 import { Link } from 'react-router-dom';
 import {
 	required,
-	atLeastThree,
-	atLeastEight,
 	passwordsMatch,
 	isValidEmail,
 	length
