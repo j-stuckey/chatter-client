@@ -19,17 +19,17 @@ export class Dashboard extends Component {
 				</div>
 			);
 		}
+
 		return (
 			<div>
-				{/* <BurgerMenu /> */}
 
-				<NewComponent name={this.props.currentUser.firstName}/>
+				<Greeting name={this.props.currentUser.firstName}/>
 			</div>
 		);
 	}
 }
 
-export const NewComponent = props => {
+export const Greeting = props => {
 	return (<div className={styles.container}>
 		<p className={styles.header}>
 			Welcome {props.name}!
