@@ -17,7 +17,7 @@ export class BurgerMenu extends React.Component {
 
 	render() {
 		return (
-			<div>
+			<span>
 				<button
 					className={this.state.show ? styles.changed : styles.burger}
 					onClick={() => this.handleClick()}
@@ -32,7 +32,7 @@ export class BurgerMenu extends React.Component {
 						className={this.state.show ? styles.modalContent : null}
 					/>
 				</div>
-			</div>
+			</span>
 		);
 	}
 }

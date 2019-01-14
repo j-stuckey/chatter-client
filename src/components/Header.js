@@ -28,7 +28,7 @@ export class Header extends React.Component {
 		return (
 			<header>
 				<nav className={this.props.isLoggedIn ? styles.mainNavLeft : styles.mainNav}>
-					{this.props.isLoggedIn ? <div><LogoutButton onClick={this.logOut}/><BurgerMenu /></div> : <GuestLinks /> }
+					{this.props.isLoggedIn ? <span><LogoutButton onClick={this.logOut}/><BurgerMenu /></span> : <GuestLinks /> }
 				</nav>
 			</header>
 		);
