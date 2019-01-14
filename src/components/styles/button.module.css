@@ -1,3 +1,8 @@
+@media only screen and (max-width: 600px) {
+	.logoutButton {
+		display: none;
+	}
+}
 .logoutButton {
 	background: red;
 	border-radius: 5px;
