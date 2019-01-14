@@ -6,6 +6,7 @@ import { clearAuthToken } from '../local-storage';
 
 import { GuestLinks } from './GuestLinks';
 import { LogoutButton } from './LogoutButton';
+import { BurgerMenu } from './BurgerMenu';
 
 export class Header extends React.Component {
 	constructor(props) {
@@ -27,7 +28,7 @@ export class Header extends React.Component {
 		return (
 			<header>
 				<nav className={this.props.isLoggedIn ? styles.mainNavLeft : styles.mainNav}>
-					{this.props.isLoggedIn ? <LogoutButton onClick={this.logOut}/> : <GuestLinks /> }
+					{this.props.isLoggedIn ? <div><LogoutButton onClick={this.logOut}/><BurgerMenu /></div> : <GuestLinks /> }
 				</nav>
 			</header>
 		);

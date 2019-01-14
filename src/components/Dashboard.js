@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
-// import BurgerMenu from './BurgerMenu';
+import BurgerMenu from './BurgerMenu';
 
 import styles from './styles/Dashboard.module.css';
 import animations from './styles/spinner.module.css';

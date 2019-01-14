@@ -17,7 +17,7 @@ export class BurgerMenu extends React.Component {
 
 	render() {
 		return (
-			<div className={styles.container}>
+			<div>
 				<button
 					className={this.state.show ? styles.changed : styles.burger}
 					onClick={() => this.handleClick()}
