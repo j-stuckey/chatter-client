@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import BurgerMenu from './BurgerMenu';
-
 import styles from './styles/Dashboard.module.css';
-import animations from './styles/spinner.module.css';
+import { Greeting } from './Greeting';
+import { Header } from './Header';
+import { LoadingSpinner } from './LoadingSpinner';
+import { BurgerMenu } from './BurgerMenu';
 
 export class Dashboard extends Component {
 	render() {
@@ -13,28 +14,71 @@ export class Dashboard extends Component {
 			return <Redirect to="/login" />;
 		}
 		if (this.props.loading) {
+			return <LoadingSpinner />;
+		} else {
 			return (
-				<div className={animations.container}>
-					<div className={animations.loader} />
+				<div className={styles.container}>
+					{this.props.render()}
+					<BurgerMenu />
+					<Greeting name={this.props.currentUser.firstName} />
+					{/* <ChatBox user={this.props.currentUser} /> */}
 				</div>
 			);
 		}
-
-		return (
-			<div>
-
-				<Greeting name={this.props.currentUser.firstName}/>
-			</div>
-		);
 	}
 }
 
-export const Greeting = props => {
-	return (<div className={styles.container}>
-		<p className={styles.header}>
-			Welcome {props.name}!
-		</p>
-	</div>)
+class ChatBox extends React.Component {
+	constructor(props) {
+		super(props);
+
+		// this.state = {
+		// 	posts: []
+		// }
+		this.posts = [];
+	}
+
+	handleSubmit = event => {
+		event.preventDefault();
+		this.posts.push({
+			author: `${this.props.user.username}`,
+			comment: event.target.chat.value
+		});
+
+		event.target.chat.value = '';
+
+		console.log(this.posts);
+	};
+
+	render() {
+		var posts = this.posts.forEach(post => {
+			return (
+				<p>
+					{post.author}: {post.comment}
+				</p>
+			);
+		});
+
+		return (
+			<React.Fragment>
+				<form
+					className={styles.chatboxContainer}
+					onSubmit={this.handleSubmit}
+				>
+					<label htmlFor="chat" />
+					<input
+						placeholder="Enter your message..."
+						name="chat"
+						type="text"
+						className={styles.chatbox}
+					/>
+					<button type="submit" className={styles.chatButton}>
+						Submit
+					</button>
+				</form>
+			</React.Fragment>
+		);
+	}
 }
 
 const mapStateToProps = state => {

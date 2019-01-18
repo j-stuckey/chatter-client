@@ -2,7 +2,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vw;
+	height: 100vw;
+	width: 100%;
 }
 
 .loader {

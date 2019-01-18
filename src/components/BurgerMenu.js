@@ -29,8 +29,9 @@ export class BurgerMenu extends React.Component {
 
 				<div className={this.state.show ? styles.modal : null}>
 					<div
-						className={this.state.show ? styles.modalContent : null}
-					/>
+						className={this.state.show ? styles.modalContent : styles.modalContentHide}
+					>
+					</div>
 				</div>
 			</span>
 		);

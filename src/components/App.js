@@ -3,6 +3,7 @@ import Header from './Header';
 import Dashboard from './Dashboard';
 import Login from './Login';
 import Registration from './Registration';
+import { connect } from 'react-redux';
 
 import { refreshAuthToken } from '../actions/auth';
 
@@ -48,10 +49,18 @@ class App extends Component {
 		return (
 			<div className={styles.background}>
 				<Route exact path="/" render={props => <Header {...props} />} />
-				<Route path="/dashboard" render={props => <Header {...props} />} />
+				{/* <Route path="/dashboard" render={props => <Header {...props} />} /> */}
 				<Route path="/login" component={Login} />
-				<Route path="/register" render={props => <Registration {...props} />} />
-				<Route path="/dashboard" render={props => <Dashboard {...props} />} />
+				<Route
+					path="/register"
+					render={props => <Registration {...props} />}
+				/>
+				<Route
+					path="/dashboard"
+					render={props => (
+						<Dashboard {...props} render={() => <Header />} />
+					)}
+				/>
 			</div>
 		);
 	}

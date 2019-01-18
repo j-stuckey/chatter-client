@@ -7,7 +7,7 @@
     left: 0;
     bottom: 0;
     z-index: -1;
-    background:#D8D8D8;
+    background:rgb(182, 182, 182);
 	background: linear-gradient(130deg, rgb(36, 34, 128), #1e5863)
 }
 
