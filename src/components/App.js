@@ -10,6 +10,7 @@ import { refreshAuthToken } from '../actions/auth';
 import { Route } from 'react-router-dom';
 
 import styles from './styles/App.module.css';
+import { BurgerMenu } from './BurgerMenu';
 
 class App extends Component {
 	componentDidUpdate(prevProps) {
@@ -48,8 +49,7 @@ class App extends Component {
 	render() {
 		return (
 			<div className={styles.background}>
-				<Route exact path="/" render={props => <Header {...props} />} />
-				{/* <Route path="/dashboard" render={props => <Header {...props} />} /> */}
+				<Route path="/" render={props => <Header {...props} />} />
 				<Route path="/login" component={Login} />
 				<Route
 					path="/register"
@@ -58,7 +58,7 @@ class App extends Component {
 				<Route
 					path="/dashboard"
 					render={props => (
-						<Dashboard {...props} render={() => <Header />} />
+						<Dashboard {...props} />
 					)}
 				/>
 			</div>

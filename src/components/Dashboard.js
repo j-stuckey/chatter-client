@@ -18,10 +18,8 @@ export class Dashboard extends Component {
 		} else {
 			return (
 				<div className={styles.container}>
-					{this.props.render()}
-					<BurgerMenu />
-					<Greeting name={this.props.currentUser.firstName} />
-					{/* <ChatBox user={this.props.currentUser} /> */}
+					<Header />
+					<ChatBox user={this.props.currentUser} />
 				</div>
 			);
 		}
