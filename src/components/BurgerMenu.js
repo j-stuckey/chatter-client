@@ -44,10 +44,10 @@ export class BurgerMenu extends React.Component {
 								: styles.modalContentHide
 						}
 					>
-						<NavLink to="/dashboard" activeStyle={this.activeStyle} onClick={this.handleClick}>
+						<NavLink to="/dashboard" activeStyle={this.activeStyle}>
 							Dashboard
 						</NavLink>
-						<NavLink to="/settings" activeStyle={this.activeStyle} onClick={this.handleClick}>
+						<NavLink to="/settings" activeStyle={this.activeStyle}>
 							Settings
 						</NavLink>
 					</MenuButtons>

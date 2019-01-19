@@ -44,15 +44,20 @@ class ChatBox extends React.Component {
 
 	render() {
 		var posts = this.state.posts;
-		console.log(posts);
+		// console.log(posts);
 
-		var comments = posts.forEach(comment => {
-			return <p>{comment[0]}:</p>
+		var comments = this.state.posts.map(comment => {
+			return <div><p className={styles.msg}>{comment[0]}: {comment[1]}</p></div>
 		})
 
+		console.log(comments);
+		
 		return (
 			<React.Fragment>
-				<p>{comments}</p>
+				<div className={styles.comments}>
+					{comments}
+				</div>
+				
 				<form
 					className={styles.chatboxContainer}
 					onSubmit={this.handleSubmit}

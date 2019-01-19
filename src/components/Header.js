@@ -26,7 +26,7 @@ export class Header extends React.Component {
 	render() {
 
 		return (
-			<header>
+			<header className={styles.header}>
 				<nav className={this.props.isLoggedIn ? styles.mainNavLeft : styles.mainNav}>
 					{this.props.isLoggedIn ? <span><LogoutButton onClick={this.logOut}/><BurgerMenu /></span> : <GuestLinks /> }
 				</nav>

@@ -12,6 +12,7 @@
 	list-style: none;
 	display: flex;
 	position: fixed;
+	z-index: 10;
 	width: 100%;
 	top: 0;
 	align-items: center;
@@ -31,4 +32,8 @@
 
 .mainNav a:last-child {
 	text-decoration: none;
+}
+
+.header {
+	height: 0; 
 }
