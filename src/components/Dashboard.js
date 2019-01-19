@@ -30,35 +30,29 @@ class ChatBox extends React.Component {
 	constructor(props) {
 		super(props);
 
-		// this.state = {
-		// 	posts: []
-		// }
-		this.posts = [];
+		this.state = {
+			posts: []
+		}
 	}
 
 	handleSubmit = event => {
 		event.preventDefault();
-		this.posts.push({
-			author: `${this.props.user.username}`,
-			comment: event.target.chat.value
-		});
+		this.setState({posts: [...this.state.posts, [`${this.props.user.username}`, `${event.target.chat.value}`]]});
 
 		event.target.chat.value = '';
-
-		console.log(this.posts);
 	};
 
 	render() {
-		var posts = this.posts.forEach(post => {
-			return (
-				<p>
-					{post.author}: {post.comment}
-				</p>
-			);
-		});
+		var posts = this.state.posts;
+		console.log(posts);
+
+		var comments = posts.forEach(comment => {
+			return <p>{comment[0]}:</p>
+		})
 
 		return (
 			<React.Fragment>
+				<p>{comments}</p>
 				<form
 					className={styles.chatboxContainer}
 					onSubmit={this.handleSubmit}
